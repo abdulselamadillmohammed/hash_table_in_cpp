@@ -1,12 +1,13 @@
 // Tenplates are used for the generic hash table
 #include <iostream>
 #include <vector>
-
+#include <string>
 #include <functional> // where default hashing function is coming from
+#include <optional>
+#include <cstdint>     // uint8_t
+#include <cassert>
 
 using namespace std;
-#include "HashTable.hpp"
-
 // template <typename K, typename V>
 // class HashTable{
     
@@ -19,6 +20,8 @@ HashTable<std::string, int> table;
 HashTable<int, double> table2;
 */
 
+
+
 int main(){
 
     // Replace this later with custom hash function implementation + linear probing
@@ -30,5 +33,4 @@ int main(){
     // Key transformer: key -> index in vector
     // size_t index = hash<K>{}(key) % capacity;
 
-    HashTable<std::string, int> table;
 }
