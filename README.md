@@ -1,6 +1,6 @@
 # hash_table_in_cpp
 
-This repo is inspired by a hash table implementation initally done in pyhton. It is redone in c++ as practice:
+This repo is inspired by a hash table implementation initally done in python. It is redone in c++ as practice:
 
 Hash Table - Data Structures & Algorithms Tutorials In Python #5
 
