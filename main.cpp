@@ -20,7 +20,15 @@ HashTable<std::string, int> table;
 HashTable<int, double> table2;
 */
 
+enum class State: uint8_t {Empty= 0, Occupied = 1, Tombstone = 2};
+// Tombstone state included to watch out for linear probing stacking case
 
+
+struct Slot {
+    std::string key{};
+    int value{};
+    State State{State::Empty};
+};
 
 int main(){
 
