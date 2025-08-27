@@ -27,7 +27,7 @@ enum class State: uint8_t {Empty= 0, Occupied = 1, Tombstone = 2};
 struct Slot {
     std::string key{};
     int value{};
-    State State{State::Empty};
+    State state{State::Empty};
 };
 
 // We will make capacity a power of 2 in order to achieve faster compute for linear probing 
@@ -38,6 +38,22 @@ std::size_t next_index(std::size_t i, std::size_t mask){
 // find_index func will either return std::nullopt or the index of the element you're looking for 
 std::optional<std::size_t>
 find_index(const std::vector<Slot>& table, std::size_t mask, const std::string& key){
+    std::size_t i = std::hash<std::string>{}(key) & mask;
+
+    for (std::size_t probes = 0; probes < table.size(); ++probes){
+        const Slot& s = table[i];
+        
+        if (s.state == State::Empty){
+            return std::nullopt;
+        }
+        if (s.state == State::Occupied && s.key == key){
+            return i;
+        }
+
+        i = next_index(i, mask);
+        
+    }
+    return std::nullopt;
     
 }
 
