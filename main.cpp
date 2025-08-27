@@ -30,6 +30,11 @@ struct Slot {
     State State{State::Empty};
 };
 
+// We will make capacity a power of 2 in order to achieve faster compute for linear probing 
+std::size_t next_index(std::size_t i, std::size_t mask){
+    return (i + 1) & mask;
+}
+
 int main(){
 
     // Replace this later with custom hash function implementation + linear probing
