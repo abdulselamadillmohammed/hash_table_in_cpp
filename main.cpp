@@ -35,6 +35,13 @@ std::size_t next_index(std::size_t i, std::size_t mask){
     return (i + 1) & mask;
 }
 
+// find_index func will either return std::nullopt or the index of the element you're looking for 
+std::optional<std::size_t>
+find_index(const std::vector<Slot>& table, std::size_t mask, const std::string& key){
+    
+}
+
+
 int main(){
 
     // Replace this later with custom hash function implementation + linear probing
