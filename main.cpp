@@ -1,6 +1,5 @@
 // Tenplates are used for the generic hash table
-#include <iostream>
-#include <vector>
+ #include <vector>
 #include <string>
 #include <functional> // where default hashing function is coming from
 #include <optional>
@@ -56,7 +55,6 @@ find_index(const std::vector<Slot>& table, std::size_t mask, const std::string& 
     return std::nullopt;
     
 }
-
 
 int main(){
 
