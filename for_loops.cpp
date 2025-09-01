@@ -26,7 +26,7 @@ int main(){
         cout << *it << " ";
     }
 
-
+    
     return 0;
 }
 
