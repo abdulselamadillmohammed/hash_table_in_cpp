@@ -56,6 +56,7 @@ find_index(const std::vector<Slot>& table, std::size_t mask, const std::string& 
     
 }
 
+
 int main(){
 
     // Replace this later with custom hash function implementation + linear probing
@@ -67,4 +68,5 @@ int main(){
     // Key transformer: key -> index in vector
     // size_t index = hash<K>{}(key) % capacity;
 
+    // pretend there was a mistake
 }
