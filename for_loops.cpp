@@ -20,6 +20,13 @@ int main(){
         x *= 2;
     }
 
+    // Using an iterator loop. it = pointer.. *it = value 
+    vector<int> nums2 = {1,2,3};
+    for (auto it = nums.begin(); it != nums.end(); ++it){
+        cout << *it << " ";
+    }
+
+
     return 0;
 }
 
