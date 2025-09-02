@@ -5,21 +5,29 @@
 #include <iostream>
 #include <functional>
 #include <vector>
+#include <string>
 using namespace std;
 
 struct Slot{
-    string key;
-    int value;
-    bool is_occupied = false;
+    string key{};
+    int value{};
+    bool is_occupied{false};
 
-    Slot(string k, int v) : key(k),value(v), is_occupied(true){}
+    Slot() = default;
+    Slot(string k, int v) : key(std::move(k)),value(v), is_occupied(true){}
 };
+
+size_t index_for(const string& key, size_t capacity){
+    return hash<string>{}(key) % capacity;
+}
 
 int main(){ 
     const int capacity = 8;
-    vector<string> table;
+    vector<Slot> table;
     hash<string> hasher;
     string string1 = "apple";
-    
+
+    cout << hasher("apple") % capacity << "\n"; 
+
     return 0;
 }
