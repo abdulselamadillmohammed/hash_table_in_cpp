@@ -61,11 +61,29 @@ int* find_value(vector<Slot>& table, const string& k){
 
 int main(){ 
     const int capacity = 8;
-    vector<Slot> table;
-    hash<string> hasher;
-    string string1 = "apple";
+    vector<Slot> table(capacity);
 
-    cout << hasher("apple") % capacity << "\n"; 
+    insert(table, "apple",  5);
+    insert(table, "orange", 10);
+
+    if (int* v = find_value(table, "apple")) {
+        cout << "apple -> " << *v << "\n";
+    } else {
+        cout << "apple not found\n";
+    }
+
+    if (int* v = find_value(table, "orange")) {
+        cout << "orange -> " << *v << "\n";
+    } else {
+        cout << "orange not found\n";
+    }
+
+    if (int* v = find_value(table, "banana")) {
+        cout << "banana -> " << *v << "\n";
+    } else {
+        cout << "banana not found\n";
+    }
+
 
     return 0;
 }
