@@ -31,7 +31,15 @@ void insert(vector<Slot>& table, const string& k, int v){
             table[i] = Slot{k, v};  
             return;
         }
+
+        // update operation
+        if (table[i].is_occupied && table[i].key == k){
+            table[i].value = v;
+            return;
+        }
+        i = (i + 1) % capacity; // linear probing 
     }
+    cout << "Table full, couldn't insert " << k << "\n";
 }
 
 int main(){ 
