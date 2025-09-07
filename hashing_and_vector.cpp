@@ -42,6 +42,23 @@ void insert(vector<Slot>& table, const string& k, int v){
     cout << "Table full, couldn't insert " << k << "\n";
 }
 
+// find value when given a key
+int* find_value(vector<Slot>& table, const string& k){
+    const size_t capacity = table.size();
+    size_t i = index_for(k, capacity);
+    for (size_t probes = 0; probes < capacity; ++probes) {
+        if (!table[i].is_occupied) {
+            return nullptr; // hit an Empty → key isn't in the table
+        }
+        if (table[i].key == k) {
+            return &table[i].value;
+        }
+        i = (i + 1) % capacity;
+    }
+    return nullptr; // not found after full loop (defensive)
+}
+
+
 int main(){ 
     const int capacity = 8;
     vector<Slot> table;
