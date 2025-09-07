@@ -21,6 +21,19 @@ size_t index_for(const string& key, size_t capacity){
     return hash<string>{}(key) % capacity;
 }
 
+// Inserting functionality with linear probing (does not handle overwrites yet)
+void insert(vector<Slot>& table, const string& k, int v){
+    const size_t capacity = table.size();
+    size_t i = index_for(k, capacity);
+
+    for (size_t probes = 0; probes < capacity; ++probes){
+        if (!table[i].is_occupied) {
+            table[i] = Slot{k, v};  
+            return;
+        }
+    }
+}
+
 int main(){ 
     const int capacity = 8;
     vector<Slot> table;
